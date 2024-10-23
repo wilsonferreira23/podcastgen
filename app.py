@@ -28,7 +28,7 @@ class PodcastGenerator:
         try:
             response = self.client.chat.completions.create(
                 messages=messages,
-                model="llama3-8b-8192"  # Exemplo de modelo compatível com Groq
+                model="llama-3.1-70b-versatile"  
             )
             return json.loads(response.choices[0].message.content)
         except Exception as e:
@@ -91,7 +91,7 @@ class TextExtractor:
             raise ValueError(f"Unsupported file type: {file_extension}")
 
 # Streamlit Interface
-st.title("PodcastGen 🎙️ - Usando Groq com Streamlit")
+st.title("PodcastGen 🎧 - Crie seu podcast com IA")
 
 input_text = st.text_area("Texto de Entrada")
 input_file = st.file_uploader("Ou faça o upload de um arquivo PDF ou TXT", type=["pdf", "txt"])
@@ -113,4 +113,7 @@ if st.button("Gerar Podcast"):
         podcast = podcast_generator.generate_podcast(input_text, language, speaker1, speaker2)
         st.audio(podcast)
 
+# Ajustar a porta para uso no Railway
+if __name__ == "__main__":
+    st.run(port=int(os.environ.get("PORT", 8501)))
 
