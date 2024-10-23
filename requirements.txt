@@ -1,6 +1,6 @@
-gradio
-gradio-client
+streamlit
 pydub
-google-generativeai
+groq
+edge-tts
+aiofiles
 pypdf
-edge_tts
