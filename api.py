@@ -121,7 +121,7 @@ Follow this example structure:
         logger.debug(f"Gerando TTS para o texto: {cleaned_text} com voz: {voice}")
         speech = edge_tts.Communicate(cleaned_text, voice)
         
-        temp_filename = f"temp_{uuid.uuid4()}.wav"
+        temp_filename = f"temp_{uuid.uuid4()}.mp3"
         try:
             await speech.save(temp_filename)
             logger.debug(f"Arquivo TTS salvo como: {temp_filename}")
@@ -140,8 +140,8 @@ Follow this example structure:
             logger.debug(f"Arquivo de áudio combinado: {audio_file}")
             os.remove(audio_file)
 
-        output_filename = f"output_{uuid.uuid4()}.wav"
-        combined_audio.export(f"static/{output_filename}", format="wav")
+        output_filename = f"output_{uuid.uuid4()}.mp3"
+        combined_audio.export(f"static/{output_filename}", format="mp3")
         logger.debug(f"Arquivo combinado salvo como: static/{output_filename}")
         return output_filename
 
