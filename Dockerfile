@@ -1,21 +1,25 @@
-# Use uma imagem base do Python
+# Dockerfile
+
+# Use a imagem Python
 FROM python:3.11-slim
 
-# Instale o FFmpeg
+# Instale o ffmpeg
 RUN apt-get update && apt-get install -y ffmpeg
 
-# Crie um diretório de trabalho
+# Defina o diretório de trabalho
 WORKDIR /app
 
-# Copie o conteúdo do projeto para o diretório de trabalho
+# Copie todos os arquivos do diretório atual para o contêiner
 COPY . /app
+
+# Crie o diretório /app/static, se não existir
+RUN [ ! -d "/app/static" ] && mkdir -p /app/static || true
 
 # Instale as dependências do projeto
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Exponha a porta em que a API irá rodar
+# Exponha a porta 8000
 EXPOSE 8000
 
 # Comando para iniciar o servidor
 CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8000"]
-
