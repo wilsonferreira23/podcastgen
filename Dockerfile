@@ -13,7 +13,7 @@ WORKDIR /app
 COPY . /app
 
 # Crie o diretório /app/static, se não existir
-RUN mkdir -p /app/static
+RUN [ ! -d "/app/static" ] && mkdir -p /app/static || true
 
 # Instale as dependências do projeto
 RUN pip install --no-cache-dir -r requirements.txt
