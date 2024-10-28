@@ -10,9 +10,6 @@ WORKDIR /app
 # Copie o conteúdo do projeto para o diretório de trabalho
 COPY . /app
 
-# Crie a pasta static para armazenar arquivos
-RUN mkdir /app/static
-
 # Instale as dependências do projeto
 RUN pip install --no-cache-dir -r requirements.txt
 
