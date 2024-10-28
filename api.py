@@ -17,6 +17,10 @@ from fastapi.staticfiles import StaticFiles
 
 nest_asyncio.apply()
 
+# Certifique-se de que o diretório 'static' exista
+if not os.path.exists("static"):
+    os.makedirs("static")
+
 # Configurar logging
 logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
