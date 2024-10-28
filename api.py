@@ -167,7 +167,7 @@ Follow this example structure:
         )
         combined_audio = await self.combine_audio_files(audio_files)
         requests_db[request_id]["status"] = PodcastStatus.COMPLETED
-        requests_db[request_id]["podcast_path"] = f"http://127.0.0.1:8000/static/{combined_audio}"
+        requests_db[request_id]["podcast_path"] = f"https://podcastgen-production.up.railway.app/static/{combined_audio}"
 
 @app.post("/generate_podcast/")
 async def create_podcast_request(
