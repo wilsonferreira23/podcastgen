@@ -1,0 +1,3 @@
+touch static/.gitkeep
+git add static/.gitkeep
+git commit -m "Adiciona a pasta static com .gitkeep para o repositório"
