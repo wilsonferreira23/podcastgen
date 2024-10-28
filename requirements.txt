@@ -6,3 +6,5 @@ edge-tts
 aiofiles
 nest-asyncio
 python-dotenv
+imageio[ffmpeg]
+
