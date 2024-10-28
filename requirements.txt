@@ -1,6 +1,8 @@
-streamlit
+fastapi
+uvicorn
 pydub
 groq
 edge-tts
 aiofiles
-pypdf
+nest-asyncio
+python-dotenv
