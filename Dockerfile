@@ -13,7 +13,7 @@ WORKDIR /app
 COPY . /app
 
 # Crie o diretório /app/static, se não existir
-RUN [ ! -d "/app/static" ] && mkdir -p /app/static || true
+RUN mkdir -p /app/static
 
 # Instale as dependências do projeto
 RUN pip install --no-cache-dir -r requirements.txt
@@ -23,3 +23,5 @@ EXPOSE 8000
 
 # Comando para iniciar o servidor
 CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8000"]
+
+
